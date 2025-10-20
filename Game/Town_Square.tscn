@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://ij27r1k0f40k"]
+
+[ext_resource type="PackedScene" uid="uid://detex77w1mod4" path="res://char/soc.tscn" id="1_a6w6p"]
+[ext_resource type="Script" uid="uid://b5cq0tdcc80nd" path="res://Game/world_border.gd" id="2_56jjv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_56jjv"]
+size = Vector2(202, 546)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_a6w6p"]
+distance = -15.0
+
+[node name="TownSquare" type="Node2D"]
+
+[node name="Soc" parent="." instance=ExtResource("1_a6w6p")]
+position = Vector2(-429, -57)
+
+[node name="WorldBorder" type="Area2D" parent="."]
+position = Vector2(-479, -47)
+collision_layer = 255
+script = ExtResource("2_56jjv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldBorder"]
+position = Vector2(7, 36)
+shape = SubResource("RectangleShape2D_56jjv")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(0, -13)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("WorldBoundaryShape2D_a6w6p")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(0, -13)
+
+[connection signal="body_entered" from="WorldBorder" to="WorldBorder" method="_on_body_entered"]

@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://bfrcpfybv6snl"]
+
+[ext_resource type="Script" uid="uid://csf520jiboeb4" path="res://Opening/opening.gd" id="1_5vefh"]
+
+[node name="Opening" type="Node2D"]
+script = ExtResource("1_5vefh")
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasModulate"]
+offset_left = -575.0
+offset_top = -325.0
+offset_right = 575.0
+offset_bottom = 324.0
+
+[node name="Camera2D" type="Camera2D" parent="."]

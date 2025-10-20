@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://bgfqoogs5unxi"]
+
+[ext_resource type="Texture2D" uid="uid://5onhbxlrfrhy" path="res://istockphoto-1158943486-640x640.jpg" id="1_yfnfd"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_yfnfd"]
+distance = -15.0
+
+[node name="Graveyard" type="Node2D"]
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color(0.621524, 0.621524, 0.621524, 1)
+
+[node name="Istockphoto-1158943486-640x640" type="Sprite2D" parent="CanvasModulate"]
+position = Vector2(576.667, 329.5)
+scale = Vector2(1.50694, 1.50694)
+texture = ExtResource("1_yfnfd")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(572, 430)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("WorldBoundaryShape2D_yfnfd")
